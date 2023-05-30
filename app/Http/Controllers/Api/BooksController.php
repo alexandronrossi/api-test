@@ -3,7 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+
+use App\Http\Requests\Api\BooksRequest;
 
 use App\Models\Book;
 
@@ -23,12 +24,12 @@ class BooksController extends Controller
         return response()->json($this->book->find($id));
     }
 
-    public function store(Request $request) 
+    public function store(BooksRequest $request) 
     {
         return response()->json($this->book->create($request->all()), 201);
     }
 
-    public function update($id, Request $request) 
+    public function update($id, BooksRequest $request) 
     {
         $book = $this->book->find($id);
         $book->update($request->all());

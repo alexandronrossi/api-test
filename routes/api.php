@@ -20,11 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/books/{id}', [BooksController::class, 'show']);
-Route::get('/books', [BooksController::class, 'index']);
-
-Route::post('/books', [BooksController::class, 'store']);
-
-Route::match(['put', 'patch'], '/books/{id}', [BooksController::class, 'update']);
-
-Route::delete('/books/{id}', [BooksController::class, 'destroy']);
+Route::apiResource('books', BooksController::class);
