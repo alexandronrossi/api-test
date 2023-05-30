@@ -20,4 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/books/{id}', [BooksController::class, 'show']);
 Route::get('/books', [BooksController::class, 'index']);
+Route::post('/books', [BooksController::class, 'store']);
